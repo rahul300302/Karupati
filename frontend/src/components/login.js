@@ -16,7 +16,7 @@ const Login = ({ setIsLoggedIn }) => {
     if (!email) return alert("Please enter your email!");
     setLoading(true);
     try {
-      await axios.post("http://localhost:3001/karupati/api/send-otp", { email });
+      await axios.post("https://karupati.onrender.com/karupati/api/send-otp", { email });
       setOtpSent(true);
       setShowOtpModal(true);
     } catch (error) {
@@ -29,7 +29,7 @@ const Login = ({ setIsLoggedIn }) => {
     if (!otp) return alert("Enter OTP!");
     setLoading(true);
     try {
-      const response = await axios.post("http://localhost:3001/karupati/api/verify-otp", { email, otp });
+      const response = await axios.post("https://karupati.onrender.com/karupati/api/verify-otp", { email, otp });
       if (response.data.status) {
         let userData=response.data.data
         console.log(userData);

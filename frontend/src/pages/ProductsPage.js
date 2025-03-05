@@ -10,7 +10,7 @@ function ProductsPage() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:3001/karupati/api/product")
+    fetch("https://karupati.onrender.com/karupati/api/product")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to fetch products");
