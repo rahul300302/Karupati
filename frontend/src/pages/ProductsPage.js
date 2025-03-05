@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import ProductCard from "../components/ProductCard";
 import { Link } from "react-router-dom";
 import "../pages/ProductsPage.css"; // External CSS file
+import Navbar from "../components/Navbar";
 
 function ProductsPage() {
   const [products, setProducts] = useState([]);
@@ -36,6 +37,9 @@ function ProductsPage() {
 
   return (
     <div className="products-page-container">
+        <div>
+        <Navbar />
+      </div>
       <div className="products-grid">
         {loading && <p>Loading products...</p>}
         {error && <p style={{ color: "red" }}>{error}</p>}

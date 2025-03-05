@@ -1,12 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Navbar from "../components/Navbar";
 
 
 function ContactPage() {
   return (
     <div style={{
     }}>
-      
+        <div>
+        <Navbar />
+      </div>
     <div className="contact-container">
 
       <h1 className="contact-title">Contact Us</h1>

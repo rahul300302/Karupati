@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Navbar() {
   const navbarStyle = {
@@ -8,6 +8,9 @@ function Navbar() {
     display: "flex",
     alignItems: "center", // Centers logo and search box vertically
     justifyContent: "space-between", // Distributes space between logo, search box, and links
+    height: "70px",
+    // marginTop: "100px",
+
   };
 
   const logoStyle = {
@@ -32,6 +35,14 @@ function Navbar() {
 
   const linkHoverStyle = {
     color: "#fbbf24", // Yellow on hover
+  };
+
+  const navigate = useNavigate();
+
+  const logout = () => {
+    debugger
+    localStorage.removeItem("UserToken");
+    navigate("/login");
   };
 
   return (
@@ -64,6 +75,10 @@ function Navbar() {
           <Link to="/cart" style={linkStyle} onMouseOver={(e) => e.target.style.color = linkHoverStyle.color} onMouseOut={(e) => e.target.style.color = 'white'}>Cart</Link>
         </li>
       </ul>
+      {/* Logout Button */}
+      <button style={{ ...linkStyle, background: "red", border: "none" }} onClick={logout}>
+        Logout
+      </button>
     </nav>
   );
 }

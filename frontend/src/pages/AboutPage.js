@@ -1,13 +1,20 @@
 import React from "react";
+import Navbar from "../components/Navbar";
 
 function AboutPage() {
   return (
-    <div style={styles.container}>
-      <h1 style={styles.heading}>About Us</h1>
-      <p style={styles.paragraph}>
-        Palm Karupatti is a leading producer of organic jaggery, offering
-        premium quality, natural, and healthy products.
-      </p>
+    <div>
+      <div>
+        <Navbar />
+      </div>
+      <div style={styles.container}>
+
+        <h1 style={styles.heading}>About Us</h1>
+        <p style={styles.paragraph}>
+          Palm Karupatti is a leading producer of organic jaggery, offering
+          premium quality, natural, and healthy products.
+        </p>
+      </div>
     </div>
   );
 }

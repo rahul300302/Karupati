@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Navbar from "../components/Navbar";
 
 function CartPage() {
   const [cartItems, setCartItems] = useState([
@@ -35,7 +36,19 @@ function CartPage() {
   };
 
   return (
-    <div className="cart-container">
+    <div style={
+      {
+        marginTop:"-25%",
+        justifyContent:"space-between"
+      }
+    }>
+    <Navbar />
+    <div style={
+      {
+        marginTop:"5px"
+      }
+    } className="cart-container">
+      
       <h1 className="cart-title">Shopping Cart</h1>
       <div className="cart-items">
         {cartItems.map((item) => (
@@ -167,6 +180,8 @@ function CartPage() {
         }
       `}</style>
     </div>
+  </div>
+
   );
 }
 

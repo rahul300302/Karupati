@@ -14,12 +14,6 @@ import './assets/styles.css';
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  useEffect(() => {
-    const user = localStorage.getItem("userLoggedIn");
-    console.log("User Logged In Status:", user); // Debugging
-    setIsLoggedIn(user === "true");
-  }, []);
-
   return (
     <Router>
       {!isLoggedIn ? (
@@ -28,7 +22,7 @@ function App() {
         </Routes>
       ) : (
         <>
-          <Navbar />
+          {/* <Navbar /> */}
           <div className="container mx-auto px-4 py-6">
             <Routes>
               <Route path="/" element={<HomePage />} />
@@ -36,10 +30,10 @@ function App() {
               <Route path="/about" element={<AboutPage />} />
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/cart" element={<CartPage />} />
-              <Route path="/login" element={<Navigate to="/" />} />
+              <Route path="/login" element={<Login />} />
             </Routes>
           </div>
-          <Footer />
+          {/* <Footer /> */}
         </>
       )}
     </Router>

@@ -1,14 +1,14 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import Navbar from "../components/Navbar";
 
 const navbarStyle = {
-  backgroundColor: "red", 
+  backgroundColor: " #2c3e50",
   padding: "16px",
   display: "flex",
   alignItems: "center",
   justifyContent: "space-between",
   height: "60px",
-  marginTop:"90px",
 };
 
 const logoStyle = {
@@ -29,6 +29,7 @@ const navLinksContainer = {
   listStyle: "none",
   margin: 0,
   padding: 0,
+  justifyContent: "center",
 };
 
 const linkStyle = {
@@ -43,44 +44,33 @@ const linkStyle = {
 };
 
 const HomePage = () => {
+  const navigate = useNavigate();
+
+  const logout = () => {
+    console.log("Logging out...");
+    localStorage.removeItem("UserToken");
+
+    if (!localStorage.getItem("UserToken")) {
+      console.log("UserToken removed");
+    } else {
+      console.log("Failed to remove UserToken");
+    }
+
+    navigate("/login");
+  };
+
   return (
     <div>
-      {/* Navbar */}
-      <nav style={navbarStyle}>
-        {/* Logo */}
-        <div>
-          <Link to="/">
-            <img src="/path-to-your-logo.png" alt="Logo" style={logoStyle} />
-          </Link>
-        </div>
-
-        {/* Search Box */}
-        <input type="text" placeholder="Search..." style={searchBoxStyle} />
-
-        {/* Navigation Links */}
-        <ul style={navLinksContainer}>
-          {[
-            { path: "/", label: "Home" },
-            { path: "/products", label: "Products" },
-            { path: "/about", label: "About" },
-            { path: "/contact", label: "Contact" },
-            { path: "/cart", label: "Cart" },
-          ].map((item, index) => (
-            <li key={index} style={{ marginLeft: "10px" }}>
-              <Link
-                to={item.path}
-                style={linkStyle}
-                onMouseOver={(e) => (e.target.style.color = "#fbbf24")}
-                onMouseOut={(e) => (e.target.style.color = "white")}
-              >
-                {item.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </nav>
 
       {/* Hero Section */}
+      <div style={
+        {
+          marginTop: "9%",
+        }
+      }>
+        <Navbar />
+      </div>
+
       <div className="home-page-container">
         <div className="hero-section">
           <h1 className="hero-title">Welcome to Palm Karupatti</h1>

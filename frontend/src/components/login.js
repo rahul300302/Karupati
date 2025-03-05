@@ -31,8 +31,11 @@ const Login = ({ setIsLoggedIn }) => {
     try {
       const response = await axios.post("http://localhost:3001/karupati/api/verify-otp", { email, otp });
       if (response.data.status) {
+        let userData=response.data.data
+        console.log(userData);
+        let user_token=userData.token
         alert("Login successful!");
-        localStorage.setItem("userLoggedIn", "true"); // Store login state
+        localStorage.setItem("UserToken",user_token ); // Store login state
         setIsLoggedIn(true); // Update state
         navigate("/"); // Redirect properly
       } else {
