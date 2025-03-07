@@ -66,30 +66,32 @@ const Login = ({ setIsLoggedIn }) => {
 
   return (
     <GoogleOAuthProvider clientId="YOUR_GOOGLE_CLIENT_ID">
-      <div className="flex justify-center items-center h-screen bg-gray-100">
-        <div className="bg-white p-6 rounded-lg shadow-md w-96">
-          <h2 className="text-xl font-semibold mb-4">Login</h2>
-          
-          {/* Email Login */}
-          <input
-            type="email"
-            placeholder="Enter your email"
-            className="w-full p-2 border rounded mb-2"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <button 
-            className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600"
-            onClick={handleEmailLogin}
-            disabled={loading}
-          >
-            {loading ? "Sending OTP..." : "Send OTP"}
-          </button>
+      <div className="login-container">
+        <div className="flex justify-center items-center h-screen bg-gray-100">
+          <div className="bg-white p-6 rounded-lg shadow-md w-96">
+            <h2 className="text-xl font-semibold mb-4">Login</h2>
 
-          <div className="text-center my-3">OR</div>
+            {/* Email Login */}
+            <input
+              type="email"
+              placeholder="Enter your email"
+              className="w-full p-2 border rounded mb-2"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <button 
+              className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600"
+              onClick={handleEmailLogin}
+              disabled={loading}
+            >
+              {loading ? "Sending OTP..." : "Send OTP"}
+            </button>
 
-          {/* Google Login */}
-          <GoogleLogin onSuccess={handleGoogleLogin} onError={() => alert("Google Login Failed!")} />
+            <div className="text-center my-3 or-text">OR</div>
+
+            {/* Google Login */}
+            <GoogleLogin onSuccess={handleGoogleLogin} onError={() => alert("Google Login Failed!")} />
+          </div>
         </div>
 
         {/* OTP Modal */}

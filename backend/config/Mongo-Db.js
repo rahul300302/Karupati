@@ -4,7 +4,9 @@ const logger = require('./logger'); // Ensure logger.js is correctly set up
 
 dotenv.config();
 
-mongoose.connect(process.env.MONGO_URI, {
+const MONGO_URI = process.env.MONGO_URI;
+
+mongoose.connect(MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 })
